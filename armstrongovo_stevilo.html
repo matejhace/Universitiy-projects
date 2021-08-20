@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Naloga</title>
+	</head>
+	<body>
+		<script>
+		
+		a = 153;
+		n = 153;
+		i = 0;
+		x = 1;
+		
+		if (n < 10 && (x == 1)) {
+			n = n + 10;
+			x++;
+		}
+		while (n > 1) {		
+			r = n % 10;
+			n = n - r;
+			n = n / 10;
+			i++;
+			if (n < 10 && (x == 1)) {
+				n = n + 10;
+				x++;
+			}
+		}
+		
+		n = a;
+		y = 1;
+		r = 0;
+		var sestevek = 0;
+		
+		if (n < 10 && (y == 1)) {
+			n = n + 10;
+			y++;
+		}
+		while (n > 1) {
+			r = n % 10;
+			n = n - r;
+			n = n / 10;
+			sestevek = sestevek + Math.pow(r, i);
+			if (n < 10 && (y == 1)) {
+				n = n + 10;
+				y++;		
+			}
+		}
+		console.log(sestevek);
+		console.log(i);
+		A_stevilo = sestevek;
+		
+		if (A_stevilo == a) {
+			
+			console.log(A_stevilo + " je Armstrongovo število ");
+		}
+			else if (A_stevilo != a) {		
+			
+			console.log(a + " ni Armstrongovo število ");
+			}	
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Naloga</title>
+	</head>
+	<body>
+		<script>
+			array = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
+			n = 4575675;
+			hex = "";
+			i = -1;
+		
+			while(n > 1){
+			n = n /16;
+			i++;
+			}
+			
+			var arr = [];
+			n = 4575675;
+			
+			while(n > 1) {
+			r = n % 16;
+			n = n / 16;
+			n = Math.floor(n);
+			arr[i] = array[r];
+			i--;
+			}
+
+			console.log(arr);			
+		</script>
+	</body>
+</html>

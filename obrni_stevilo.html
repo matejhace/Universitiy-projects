@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Naloga</title>
+	</head>
+	<body>
+		<script>
+
+		n = 12345;
+		nIzh = 0;
+		
+		while (n != 0) {
+			
+			nIzh = nIzh * 10;
+			nIzh = nIzh + (n % 10);
+			n = n - (n % 10);
+			n = n / 10;
+			
+		
+		}
+			
+		
+		console.log(nIzh);
+		
+		</script>
+	</body>
+</html>

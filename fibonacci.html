@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<script>
+		var cifra = 5000;
+		var n_0 = 0;
+		var n_1 = 1;
+		var temp = 0;
+		
+		while (n_1 < cifra && (n_1 >= n_0)) {
+			temp = n_1 + n_0;
+			n_0 = n_1;
+			n_1 = temp;
+		}
+		
+		console.log("Od števila " + cifra + " je prvi večji člen: " + n_1);
+	
+		</script>
+	</body>
+</html>

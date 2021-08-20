@@ -1,0 +1,46 @@
+clear
+clc
+close all
+% Nastavitve (I,t,TOCENA)
+ Ivvv=21; % tokovna nastavitev za I>>>
+ Ivv=11; % tokovna nastavitev za I>>
+ Iv=5; % tokovna nastavitev za I>
+ Tvvv=0; % t>>> trip delay
+ Tvv=6e-3; % t>> trip delay
+ Tv=24e-3; % t> trip delay
+ TOCENA = 0; % Nadtokovna zascita je vklopljena
+
+ t_start=0; % start time
+ sim_st=1e-6; % step time
+ t_end=0.1; % end time
+ t=(t_start:sim_st:t_end); % cas simulacije
+ w0=2*pi*50;
+
+cas_spremembe_signala = 0.05;
+c=min(find(t>=cas_spremembe_signala));
+e=max(size(t)); % Definiranje vhodnega signala
+vhodni_tok(1:c-1)=4*sin(w0*t(1:c-1));
+vhodni_tok(c:e)=18*sin(w0*t(c:e));
+
+% harm=3; % Tretja harmonska komponenta
+% vhodni_tok=18*sin(2*pi*50*t)+10*sin(w0*t.*harm);
+% c opis signala
+% w1 = 2*pi*48; % 48 Hz - 52 Hz
+% vhodni_tok = 18*sin(w1*t);
+i1=[t', vhodni_tok']; % Simulink input signal
+ti = sim('vaja_3a');
+figure;
+subplot(7,1,1:3); hold on
+ plot(ti.i1_measured,'b','LineWidth',1.5);
+ plot(ti.sig_dft,'r','LineWidth',1.5,'LineStyle',':');
+subplot(7,1,4); hold on
+ plot(ti.TOC_trip, 'r','LineWidth',1.5);
+subplot(7,1,5); hold on
+ plot(ti.TOCvvv, 'k','LineWidth',1.5);
+ plot(ti.sig_Ivvv, 'r','LineWidth',1.1,'LineStyle',':');
+subplot(7,1,6); hold on
+ plot(ti.TOCvv, 'k','LineWidth',1.5);
+ plot(ti.sig_Ivv, 'g','LineWidth',1.5,'LineStyle',':');
+subplot(7,1,7); hold on
+ plot(ti.TOCv, 'k','LineWidth',1.5);
+ plot(ti.sig_Iv, 'm','LineWidth',1.5,'LineStyle',':');

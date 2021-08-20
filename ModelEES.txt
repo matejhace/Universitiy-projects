@@ -1,0 +1,26 @@
+clear; clc; close all;
+ti = sim('vaja_2');
+figure;
+subplot(5,1,1); hold on; grid on;
+ plot(ti.Vp(:,1));
+ legend('\itu\rm_p (L1)')
+ xlabel('\itt \rm(s)'); ylabel('\itu \rm(V)');
+
+subplot(5,1,2); hold on; grid on;
+ plot(ti.Vs(:,1))
+ legend('\itu\rm_s (L1)')
+ xlabel('\itt \rm(s)'); ylabel('\itu \rm(V)');
+subplot(5,1,3); hold on; grid on;
+ plot(ti.Ip(:,1));
+ legend('\iti\rm_p (L1)')
+ xlabel('\itt \rm(s)'); ylabel('\iti \rm(A)');
+
+ subplot(5,1,4); hold on; grid on;
+ plot(ti.Is(:,1))
+legend('\iti\rm_s (L1)')
+ xlabel('\itt \rm(s)'); ylabel('\iti \rm(A)');
+
+subplot(5,1,5); hold on; grid on;
+ plot(ti.I1(:,1));
+  legend('\iti\rm_2 (L1)','\iti\rm_2 (L2)','\iti\rm_2 (L3)')
+ xlabel('\itt \rm(s)'); ylabel('\iti \rm(A)');
